@@ -1,0 +1,21 @@
+# robots.txt
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# Sitemap
+Sitemap: <?= BASE_URL ?>sitemap.xml
+
+# Block admin
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /uploads/*.php
+
+# Block sensitive
+Disallow: /payment.php
+Disallow: /verify.php
+Disallow: /subscribe.php
+Disallow: /search.php?q=
+
+# Block other pages
+Disallow: /404.php

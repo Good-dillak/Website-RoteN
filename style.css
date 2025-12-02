@@ -1,0 +1,536 @@
+/* ================================================= */
+/* GLOBAL STYLES & COLOR VARIABLES */
+/* ================================================= */
+
+/* Reset & Base */
+body {
+    /* Menggunakan font yang sedikit lebih tebal untuk modernitas */
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fdfdff; /* Latar Belakang Putih Sangat Bersih */
+    color: #1a1a1a; /* Warna Teks Utama Sangat Gelap */
+    line-height: 1.65;
+}
+
+/* --- Variabel Warna Baru (Magenta/Rose Red) --- */
+:root {
+    --bs-primary: #D61355; /* Magenta Lebih Dalam dan Vibran */
+    --bs-primary-rgb: 214, 19, 85;
+    --bs-light: #e0e0e0;
+    --bs-dark: #1a1a1a;
+    --bs-secondary-text: #6c757d; /* Abu-abu untuk detail */
+}
+
+/* --- TOMBOL DASAR (Diterapkan di Publik & Admin) --- */
+.btn {
+    border-radius: 50px; /* Bentuk pil/rounded penuh */
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    box-shadow: 0 4px 10px rgba(214, 19, 85, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #9c0c3e; 
+    border-color: #9c0c3e;
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px rgba(214, 19, 85, 0.6);
+}
+
+.btn-outline-primary {
+    color: var(--bs-primary);
+    border: 2px solid var(--bs-primary); 
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    transform: scale(1.02); 
+}
+
+/* ================================================= */
+/* Tampilan Publik (Index Page) */
+/* ================================================= */
+
+/* Navbar Styling */
+.navbar a.nav-link,
+.navbar .btn,
+.navbar .dropdown-toggle,
+.navbar .navbar-toggler,
+.navbar i,
+.admin-icon, .admin-icon i {
+    color: #1a1a1a !important; 
+    transition: color 0.3s ease;
+}
+
+/* NEW: Logo yang lebih besar */
+.navbar-brand .navbar-logo {
+    height: 40px; /* Ukuran yang lebih besar */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-link {
+    font-weight: 700; 
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff !important; 
+    transform: scale(1.05); 
+}
+
+.navbar a.nav-link:hover,
+.navbar .btn:hover {
+    color: var(--bs-primary) !important; 
+}
+
+/* Banner Selamat Datang: Putih Murni */
+.bg-primary {
+    background: #ffffff !important; 
+    border: 1px solid #e0e0e0; 
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Menjamin Teks Banner Berwarna Hitam Murni (#000000) */
+.bg-primary.text-white,
+.bg-primary h1, 
+.bg-primary p,
+.bg-primary .text-white {
+    color: #000000 !important; 
+    text-shadow: none !important; 
+}
+
+.bg-primary h1 {
+    font-weight: 900; 
+}
+
+/* Card Styling (Konten Berita Terbaru) */
+.card {
+    border: none !important; 
+    border-radius: 1.25rem !important; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.02); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1); 
+}
+
+.card-title a {
+    color: #1a1a1a; 
+    font-weight: 700; 
+    transition: color 0.2s;
+}
+
+.card-title a:hover {
+    color: var(--bs-primary) !important; 
+}
+
+/* Metadata Kecil */
+.text-muted.small, .card-text.text-muted.small {
+    color: var(--bs-secondary-text) !important; 
+    font-size: 0.85rem;
+}
+
+.card-body .bi-calendar, 
+.card-body .bi-tags,
+.card-body .bi-person {
+    color: var(--bs-primary); 
+}
+
+/* ================================================= */
+/* Halaman Admin (Gaya Seragam dan Putih) */
+/* ================================================= */
+
+/* Pastikan semua background di Admin adalah putih */
+.admin-wrapper, .dashboard-container, .content-wrapper, .wrapper {
+    background-color: #fdfdff !important;
+}
+
+/* Sidebar Styling (Jika ada) */
+.sidebar {
+    background-color: #ffffff !important; /* Sidebar Putih */
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Status Aktif Sidebar */
+.sidebar .nav-item .nav-link.active,
+.sidebar .nav-item .nav-link:hover {
+    color: #ffffff !important;
+    background-color: var(--bs-primary) !important; /* Background Magenta */
+    border-radius: 0.5rem;
+}
+
+/* Admin Card (Widget atau Panel) */
+.admin-card, .box {
+    border: none !important; 
+    border-radius: 1.25rem !important; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.02); 
+    background-color: #ffffff !important;
+}
+
+/* --- PERBAIKAN: Tombol Admin Seragam --- */
+.admin-wrapper .btn {
+    border-radius: 50px; 
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tambahkan shadow ke semua tombol Admin */
+}
+
+/* Primary Button (Save, Confirm) - Magenta */
+.admin-wrapper .btn-primary {
+    /* Sudah diatur di bagian global, hanya memastikan shadow lebih kuat */
+    box-shadow: 0 4px 10px rgba(214, 19, 85, 0.4);
+}
+
+/* Success Button (Create, Add) - Modern Green */
+.admin-wrapper .btn-success {
+    background-color: #1abc9c; /* Emerald Green */
+    border-color: #1abc9c;
+    color: #fff;
+}
+.admin-wrapper .btn-success:hover {
+    background-color: #15a084;
+    border-color: #15a084;
+    transform: translateY(-1px);
+}
+
+/* Danger Button (Delete, Remove) - Modern Red */
+.admin-wrapper .btn-danger {
+    background-color: #e74c3c; /* Alizarin Red */
+    border-color: #e74c3c;
+    color: #fff;
+}
+.admin-wrapper .btn-danger:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    transform: translateY(-1px);
+}
+
+/* Secondary/Info/Default Button (Cancel, Back) - Neutral Gray */
+.admin-wrapper .btn-secondary, 
+.admin-wrapper .btn-info, 
+.admin-wrapper .btn-default,
+.admin-wrapper .btn-warning { /* Mengganti warning dengan gray agar tidak ada kuning */
+    background-color: #bdc3c7; /* Silver */
+    border-color: #bdc3c7;
+    color: #1a1a1a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.admin-wrapper .btn-secondary:hover,
+.admin-wrapper .btn-info:hover,
+.admin-wrapper .btn-default:hover,
+.admin-wrapper .btn-warning:hover {
+    background-color: #95a5a6;
+    border-color: #95a5a6;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Outline Buttons di Admin */
+.admin-wrapper .btn-outline-primary {
+    /* Sudah diatur di bagian global */
+    background-color: transparent;
+}
+/* CONTAINER & HEADER */
+.admin-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.page-title {
+    margin-bottom: 25px;
+    font-size: 2em;
+    color: #212529;
+}
+.page-title .icon-speedometer {
+    margin-right: 10px;
+}
+.header-actions {
+    margin-bottom: 20px;
+    text-align: right;
+}
+.divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 30px 0;
+}
+
+/* TOMBOL DASAR */
+/* ================================================================= */
+/* MENGHINDARI KONFLIK WARNA LAMA */
+/* ================================================================= */
+.btn {
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.btn-secondary {
+    background-color: #bdc3c7; 
+    color: #1a1a1a;
+    border-color: #bdc3c7;
+}
+.btn-secondary:hover {
+    background-color: #95a5a6;
+    border-color: #95a5a6;
+    color: #fff;
+}
+
+.btn-info { 
+    background-color: #bdc3c7; 
+    color: #1a1a1a;
+    border-color: #bdc3c7;
+}
+.btn-info:hover {
+    background-color: #95a5a6;
+    border-color: #95a5a6;
+    color: #fff;
+}
+
+.btn-dark {
+    background-color: #212529;
+    color: white;
+}
+.btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+
+/* ================================================= */
+/* PERBAIKAN: STYLES UNTUK SINGLE ARTICLE (article.php) */
+/* ================================================= */
+
+/* Gambar Utama Rata Penuh dan TIDAK Terpotong */
+.article-featured-image-container {
+    height: auto; 
+    overflow: visible; 
+}
+
+.article-img.img-cover {
+    width: 100%;
+    height: auto;
+    object-fit: initial; 
+}
+
+/* Perataan Teks Konten Rata Kiri-Kanan (Justify) */
+.article-content.text-justify,
+.article-content.text-justify p,
+.article-content.text-justify li {
+    text-align: justify;
+}
+
+/* ================================================= */
+/* STYLES KUSTOM: BUTTON SOSIAL MEDIA (SHARE MODAL) */
+/* ================================================= */
+
+/* GAYA DASAR SEMUA TOMBOL SHARE (Kotak Rounded, Vertikal, LEBIH PENDEK) */
+.modal-body .btn {
+    border-radius: 1.25rem !important; /* Membuat bentuk kotak dengan sudut membulat */
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important; /* Tambahkan shadow ringan */
+    
+    padding: 0.5rem 0.3rem; /* Padding lebih kecil */
+    
+    /* PENTING: Atur dimensi agar seragam (PERSEGI 70x70) */
+    width: 70px; /* Lebar baru */
+    height: 70px !important; /* Tinggi baru */
+    min-height: 70px !important; 
+    
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    
+    line-height: 1.0; /* Kurangi line-height */
+}
+
+/* GAYA KHUSUS UNTUK IKON (Dibuat besar dan menonjol) */
+.modal-body .btn i {
+    font-size: 1.75rem !important; /* Ukuran ikon yang disesuaikan agar muat di 70px */
+    margin-bottom: 0.1rem; /* Jarak yang lebih kecil */
+}
+
+/* Teks kecil di bawah ikon */
+.modal-body .btn small {
+    font-size: 0.6rem; /* Ukuran font teks label dikecilkan */
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+}
+
+
+/* WARNA BRAND RESMI (Diperkuat dengan !important) */
+.modal-body .btn-success { /* WhatsApp */
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: #fff !important;
+}
+.modal-body .btn-primary { /* Facebook */
+    background-color: #1877F2 !important; 
+    border-color: #1877F2 !important;
+    color: #fff !important;
+}
+
+/* Twitter/X (Hitam) */
+.btn-twitter {
+    background-color: #000000 !important; 
+    border-color: #000000 !important;
+    color: #fff !important;
+}
+.btn-twitter:hover {
+    background-color: #333333 !important;
+    border-color: #333333 !important;
+}
+
+/* Instagram (Merah/Pink Vibran) */
+.btn-instagram {
+    background-color: #E1306C !important; 
+    border-color: #E1306C !important;
+    color: #fff !important;
+}
+.btn-instagram:hover {
+    background-color: #B92A5B !important;
+    border-color: #B92A5B !important;
+}
+
+/* TikTok (Hitam) */
+.btn-tiktok {
+    background-color: #000000 !important; 
+    border-color: #000000 !important;
+    color: #fff !important;
+}
+.btn-tiktok:hover {
+    background-color: #444444 !important;
+    border-color: #444444 !important;
+}
+
+/* Salin Tautan (UTILITAS) */
+.btn-copy {
+    background-color: #e9ecef !important; 
+    border-color: #e9ecef !important;
+    /* Ikon/Teks berwarna Magenta */
+    color: var(--bs-primary) !important; 
+}
+.btn-copy:hover {
+    background-color: #dee2e6 !important;
+    border-color: #dee2e6 !important;
+    color: var(--bs-primary) !important;
+}
+
+/* Email (UTILITAS - Kelas Baru) */
+.btn-email { 
+    background-color: #e9ecef !important; 
+    border-color: #e9ecef !important;
+    /* Ikon/Teks berwarna Magenta */
+    color: var(--bs-primary) !important; 
+}
+.btn-email:hover {
+    background-color: #dee2e6 !important;
+    border-color: #dee2e6 !important;
+    color: var(--bs-primary) !important;
+}
+
+/* ================================================= */
+/* STYLES KUSTOM: GAMBAR & VIDEO THUMBNAIL ARTIKEL (BARU) */
+/* ================================================= */
+
+/* Atur gaya untuk gambar tambahan (article-thumb-image) */
+.article-thumb-image, .article-thumb-video {
+    width: 100%;
+    /* Tinggi yang seragam agar terlihat rapi dalam grid, misalnya 120px */
+    height: 120px; 
+    /* Pastikan media menutupi area tanpa terdistorsi saat di thumbnail*/
+    object-fit: cover; 
+}
+
+/* Kursor Tangan untuk Gambar yang Dapat Diklik */
+.cursor-pointer {
+    cursor: pointer;
+    transition: transform 0.2s; /* Efek hover ringan */
+}
+.cursor-pointer:hover {
+    transform: scale(1.02);
+}
+
+/* Sesuaikan tampilan untuk video yang telah diberi kelas w-100 dan rounded */
+.mb-4 video {
+    object-fit: cover;
+    border-radius: 0.5rem; /* Menyesuaikan dengan .rounded */
+}
+
+/* ================================================= */
+/* STYLES KUSTOM: MODAL GALERI MEDIA (BARU) */
+/* ================================================= */
+
+/* Tombol Tutup Modal Gambar */
+#mediaGalleryModal .btn-close-white {
+    filter: invert(1); /* Membuat ikon silang putih */
+    opacity: 1;
+    z-index: 1050; /* Pastikan tombol di atas gambar */
+    position: absolute;
+}
+
+/* 🚀 FIX UTAMA: MEMAKSIMALKAN UKURAN MODAL DI LAYAR (LAPTOP/HP) */
+#mediaGalleryModal .modal-dialog {
+    /* Gunakan ukuran modal-xl, lalu paksa lebar dan tinggi maksimum */
+    max-width: 95vw !important; /* Ambil 95% dari lebar viewport */
+    width: 95vw !important;     
+    height: 95vh !important;    
+    max-height: 95vh !important; 
+    margin: 0 auto;             
+}
+
+#mediaGalleryModal .modal-content {
+    background-color: rgba(0, 0, 0, 0.85) !important; /* Latar belakang semi-transparan gelap */
+    height: 100% !important; /* Paksa konten modal mengisi 100% dari dialog 95vh */
+    border: none;
+}
+
+/* Kontainer Media di dalam Modal */
+#modalMediaContainer {
+    /* Kontainer mengisi seluruh ruang konten modal */
+    height: 100%;
+    padding: 10px; 
+}
+
+/* PENTING: Pengaturan Dasar Media */
+#modalMediaContainer img,
+#modalMediaContainer video {
+    max-width: 100% !important; 
+    max-height: 100% !important; 
+    display: block;
+    margin: auto;
+}
+
+/* 1. Pengaturan untuk GAMBAR (Tetap Meregang/Fill 100% - Sesuai permintaan sebelumnya) */
+#modalMediaContainer img {
+    width: 100% !important; 
+    height: 100% !important; 
+    object-fit: fill !important; 
+}
+
+/* 2. 🚀 FIX VIDEO: Mengikuti Rasio Asli/Contain - Sesuai permintaan terakhir */
+#modalMediaContainer video {
+    /* Atur kembali dimensi ke auto agar object-fit: contain bekerja dengan benar */
+    width: auto !important; 
+    height: auto !important; 
+    /* Memastikan rasio asli dipertahankan dan video tidak terpotong */
+    object-fit: contain !important; 
+}

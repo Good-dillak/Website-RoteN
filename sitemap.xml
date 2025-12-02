@@ -1,0 +1,57 @@
+<?php
+// sitemap.xml
+require 'includes/config.php';
+header('Content-Type: application/xml');
+echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
+?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <url>
+        <loc><?= BASE_URL ?></loc>
+        <lastmod><?= date('c') ?></lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <?php
+    $stmt = $pdo->query("SELECT slug, created_at, featured_image FROM articles WHERE status = 'published'");
+    foreach ($stmt as $a):
+        $link = BASE_URL . 'article.php?slug=' . $a['slug'];
+        $lastmod = date('c', strtotime($a['created_at']));
+    ?>
+    <url>
+        <loc><?= $link ?></loc>
+        <lastmod><?= $lastmod ?></lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <?php if ($a['featured_image']): ?>
+        <image:image>
+            <image:loc><?= BASE_URL ?><?= $a['featured_image'] ?></image:loc>
+            <image:title><?= htmlspecialchars($a['slug']) ?></image:title>
+        </image:image>
+        <?php endif; ?>
+    </url>
+    <?php endforeach; ?>
+
+    <?php
+    $stmt = $pdo->query("SELECT slug, created_at, featured_image, title FROM videos WHERE status = 'published'");
+    foreach ($stmt as $v):
+        $link = BASE_URL . 'watch.php?v=' . $v['slug'];
+        $lastmod = date('c', strtotime($v['created_at']));
+    ?>
+    <url>
+        <loc><?= $link ?></loc>
+        <lastmod><?= $lastmod ?></lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <?php if ($v['featured_image']): ?>
+        <image:image>
+            <image:loc><?= BASE_URL ?><?= $v['featured_image'] ?></image:loc>
+            <image:title><?= htmlspecialchars($v['title']) ?></image:title>
+        </image:image>
+        <?php endif; ?>
+    </url>
+    <?php endforeach; ?>
+
+</urlset>

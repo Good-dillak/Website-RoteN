@@ -1,0 +1,21 @@
+{
+  "name": "NusaRoteMalole - Portal Berita Rote",
+  "short_name": "NusaRoteMalole",
+  "description": "Portal berita, budaya, dan wisata Pulau Rote NTT",
+  "start_url": "/static/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#212529", 
+  "icons": [
+    {
+      "src": "../assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "../assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
